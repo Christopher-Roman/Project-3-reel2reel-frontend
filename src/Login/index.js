@@ -15,7 +15,7 @@ class Login extends Component {
 		})
 	}
 	handleSubmit = async (e) => {
-		e.preventDefault();
+		// e.preventDefault();
 
 		const loginResponse = await fetch('http://localhost:9000/auth/login', {
 			method: 'POST',
@@ -26,20 +26,25 @@ class Login extends Component {
 			}
 		});
 		const parsedResponse = await loginResponse.json();
+		console.log(loginResponse);
 		if(parsedResponse.data === 'login successful') {
 			console.log('Successful login');
 			this.props.history.push('/movies');
-		}		
+		}	
+
 	}
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<label>Username</label>
-				<input type='text' name='username' onChange={this.handleChange} /><br />
-				<label>Password</label>
-				<input type='password' name='password' onChange={this.handleChange} /><br />
-				<button type='Submit'>Login</button>
-			</form>
+			<div>
+
+				<form onSubmit={this.handleSubmit}>
+					<label>Username</label>
+					<input type='text' name='username' onChange={this.handleChange} /><br />
+					<label>Password</label>
+					<input type='password' name='password' onChange={this.handleChange} /><br />
+					<button type='Submit'>Login</button>
+				</form>
+			</div>
 		)
 	}
 }
