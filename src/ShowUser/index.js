@@ -3,6 +3,7 @@ import FavMovies from './FavMovies';
 import OwnedMovies from './OwnedMovies';
 import WatchList from './WatchList'
 import MovieContainer from '../MovieContainer';
+import { Grid, Card, Container, Header  } from 'semantic-ui-react';
 
 class ShowUser extends Component {
 	constructor() {
@@ -36,24 +37,43 @@ class ShowUser extends Component {
 	}
 	render() {
 		return(
-			<div>
-				<h1>Hello, {this.props.username}!</h1>
-				<div>
-					<label>Watch List!</label>
+		<Container >
+			<Card>
+				<Card.Content>
+
+					<Header as="h1">Hello, {this.props.username}!</Header>
+
+
+				<Card.Header>
+				
+					Watch List!
 					<WatchList watchList={this.state.watchList}/>
-				</div><br /><br />
-				<div>
-					<label>Fav Movies!</label>
+				</Card.Header>
+				<br/>
+				<Card.Header>
+				
+					Fav Movies!
 					<FavMovies favMovies={this.state.favMovies}/>
-				</div><br /><br />
-				<div>
-					<label>Owned Movies</label>
+				</Card.Header>
+				<br/>
+				<Card.Header>
+				
+					Owned Movies
 					<OwnedMovies ownedMovies={this.state.ownedMovies}/>
-				</div><br /><br />
-				<div>
+				</Card.Header>
+				<br/>
+				
+				<Card.Header>
+				
 					<MovieContainer />
-				</div>
-			</div>
+				
+				</Card.Header>
+				<br/>
+
+				</Card.Content>
+			
+			</Card>
+		</Container>
 		)
 	}
 }
