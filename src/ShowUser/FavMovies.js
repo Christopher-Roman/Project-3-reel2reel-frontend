@@ -1,11 +1,22 @@
+import React, { Component } from 'react'
 import ShowUser from './ShowUser'
 
-const FavMovies = (props) => {
-	const movies = props.favMovies.map((movie, i) => {
+class FavMovies extends Component {
+	render() {
+		const favMovies = this.state.favMovies.map((movie, i) => {
+			return(
+				<li key={i}>
+					Title: {movie.title}
+				</li>
+			)
+		})
 		return(
-			<li key={i}>
-				Title: {movie.title}
-			</li>
+			<ul>
+			{favMovies}
+			</ul>
+
 		)
-	})
+	}
 }
+
+export default FavMovies
