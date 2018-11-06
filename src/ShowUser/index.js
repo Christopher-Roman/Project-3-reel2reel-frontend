@@ -1,8 +1,40 @@
 import React, { Component } from 'react';
+import FavMovies from './FavMovies';
+import OwnedMovies from '../OwnedMovies';
+import WatchList from '../WatchList'
 import MovieContainer from '../MovieContainer';
 import { Grid, Card, Container, Header  } from 'semantic-ui-react';
 
-class User extends Component {
+class ShowUser extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			username: '',
+			name: '',
+			watchList: [],
+			favMovies: [],
+			ownedMovies: []
+		}
+	}
+	getUser = async () => {
+		const user = await fetch('http://localhost:9000/user');
+		const userParsedJSON = await user.json();
+		return userParsedJSON
+	}
+	componentDidMount(){
+		this.getUser().then((user) => {
+			this.setState({
+				username: user.data.username,
+				name: user.data.name,
+				watchList: user.data.watchList,
+				favMovies: user.data.favMovies,
+				ownedMovies: user.data.ownedMovies
+			}).catch((err) => {
+				console.log(err);
+			})
+		})
+	}
 	render() {
 		return(
 		<div class="movie-container">
@@ -20,6 +52,7 @@ class User extends Component {
 				<Card.Content>
 				This is where the users watch list is going to go
 				</Card.Content>
+					<WatchList watchList={this.state.watchList}/>
 				</Card.Header>
 				<br/>
 				<Card.Header>
@@ -28,6 +61,7 @@ class User extends Component {
 				<Card.Content>
 				This is where the users fav movies list is going to go
 				</Card.Content>
+					<FavMovies favMovies={this.state.favMovies}/>
 				</Card.Header>
 				<br/>
 				<Card.Header>
@@ -36,6 +70,9 @@ class User extends Component {
 				<Card.Content>
 				This is where the users owned movie list is going to go
 				</Card.Content>
+
+					<OwnedMovies ownedMovies={this.state.ownedMovies}/>
+
 				</Card.Header>
 				<br/>
 				
@@ -54,4 +91,4 @@ class User extends Component {
 	}
 }
 
-export default User;
+export default ShowUser;
