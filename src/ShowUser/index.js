@@ -18,7 +18,8 @@ class ShowUser extends Component {
 		}
 	}
 	getUser = async () => {
-		const user = await fetch('http://localhost:9000/user');
+		const user = await fetch('http://localhost:9000/user?');
+		console.log(user);
 		const userParsedJSON = await user.json();
 		return userParsedJSON
 	}
