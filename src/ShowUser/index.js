@@ -16,7 +16,6 @@ class User extends Component {
 					<label>Owned Movies</label>
 				</div><br /><br />
 				<div>
-					<label>Search Movies!</label><br /><br />
 					<MovieContainer />
 				</div>
 
