@@ -1,27 +1,44 @@
 import React, { Component } from 'react';
 import MovieContainer from '../MovieContainer';
+import { Grid, Label, Row, Item } from 'semantic-ui-react';
 
 class User extends Component {
 	render() {
 		return(
-			<div>
-				<h1>Hello, {this.props.username}!</h1>
-				<div>
-					<label>Watch List!</label>
-				</div><br /><br />
-				<div>
-					<label>Fav Movies!</label>
-				</div><br /><br />
-				<div>
-					<label>Owned Movies</label>
-				</div><br /><br />
-				<div>
+			<Grid style={{ height: '100%' }} verticalAlign='middle' stackable>
+				<Grid.Column>
+
+					<h1>Hello, {this.props.username}!</h1>
+
+
+				<Item>
+				
+					<Label>Watch List!</Label>
+				
+				</Item>
+				
+				<Item>
+				
+					<Label>Fav Movies!</Label>
+				
+				</Item>
+				
+				<Item>
+				
+					<Label>Owned Movies</Label>
+				
+				</Item>
+				
+				<Item>
+				
 					<MovieContainer />
-				</div>
+				
+				</Item>
 
 
-
-			</div>
+				</Grid.Column>
+			
+			</Grid>
 
 		)
 	}
