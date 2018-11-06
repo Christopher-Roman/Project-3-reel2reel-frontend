@@ -1,8 +1,31 @@
-// import React from 'react';
-// import MovieContainer from '../MovieContainer';
+import React, { Component } from 'react';
+import MovieContainer from '../MovieContainer';
 
-// const Movies = (props) => {
-// 	const movies = props.movies.map
-// }
+class User extends Component {
+	render() {
+		return(
+			<div>
+				<h1>Hello, {this.props.username}!</h1>
+				<div>
+					<label>Watch List!</label>
+				</div><br /><br />
+				<div>
+					<label>Fav Movies!</label>
+				</div><br /><br />
+				<div>
+					<label>Owned Movies</label>
+				</div><br /><br />
+				<div>
+					<label>Search Movies!</label><br /><br />
+					<MovieContainer />
+				</div>
 
-// export default Movies;
+
+
+			</div>
+
+		)
+	}
+}
+
+export default User;
