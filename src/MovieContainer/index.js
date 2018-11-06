@@ -11,24 +11,25 @@ class MovieContainer extends Component {
 	}
 	searchMovie = async (e) => {
 		e.preventDefault();
-		console.log("Hello world");
-		console.log(e.currentTarget.value);
 
-
-		this.setState({
-			[e.currentTarget.name]: e.currentTarget.value
-		})
-		console.log(this.state);
-		const searchResult = await fetch('http://api-public.guidebox.com/v2/search?api_key=7eec0384545005656d8702d02413111dbd7d6f1b&type=movie&field=title&query=' + this.state.search)
-		
+		// fetch call to your backend localhost:5000?movie=terminator
+		const searchResult = await fetch('http://localhost:9000/movie/search?searchTerm=' + this.state.search)
+		const foundMovie = await searchResult.json();
+		console.log('here is foundMovie');
+		console.log(foundMovie);
 		// return searchResult;
+	}
+	handleChange = (e) => {
+		this.setState({
+			search: e.currentTarget.value
+		})
 	}
     render(){
 
         return(
         	<div>
 	            <form onSubmit={this.searchMovie}>Search movie
-					<input type="text" name="search"/>
+					<input type="text" name="search" value={this.state.search} onChange={this.handleChange} />
 				<button>search</button>
 				</form>
 			</div>
