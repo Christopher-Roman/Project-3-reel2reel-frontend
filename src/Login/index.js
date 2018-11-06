@@ -37,19 +37,21 @@ class Login extends Component {
 	}
 	render() {
 		return (
+		
 
-			<Grid textAlign="center" style={{ height: '100%', padding: 'auto' }} verticalAlign='middle'>
-				<Grid.Column style={{ maxWidth: 450 }}>
-					<Form onSubmit={this.handleSubmit}>
-						<Label>Username</Label>
-						<Form.Input fluid icon="user" size="large" type='text' name='username' onChange={this.handleInput} value={this.state.username} placeholder='username' verticalalign="middle"/><br />
-						<Label>Password</Label>
-						<Form.Input fluid icon="lock"  size="large" type='password' name='password' onChange={this.handleInput} value={this.state.password} placeholder='password' /><br />
-						<Button color="green"type='Submit'>Login</Button>
-					</Form>
-				</Grid.Column>
+			<Grid textAlign="center">
+				<div class="login-form">
+					<Grid.Column style={{ maxWidth: 300 }} >
+						<Form onSubmit={this.handleSubmit}>
+							<Label>Username</Label>
+							<Form.Input fluid icon="user" size="large" type='text' name='username' onChange={this.handleInput} value={this.state.username} placeholder='username' verticalalign="middle"/><br />
+							<Label>Password</Label>
+							<Form.Input fluid icon="lock"  size="large" type='password' name='password' onChange={this.handleInput} value={this.state.password} placeholder='password' /><br />
+							<Button color="green"type='Submit'>Login</Button>
+						</Form>
+					</Grid.Column>
+				</div>
 			</Grid>
-
 		)
 	}
 }
