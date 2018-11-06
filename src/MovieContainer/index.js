@@ -28,8 +28,8 @@ class MovieContainer extends Component {
 
         return(
         	<div>
-	            <form onSubmit={this.searchMovie}>Find a Movie <br /><br />
-					<input type="text" name="search" value={this.state.search} onChange={this.handleChange} /><br />
+	            <form onSubmit={this.searchMovie}>Search movie
+					<input type="text" name="search" value={this.state.search} onChange={this.handleChange} />
 				<button>search</button>
 				</form>
 			</div>

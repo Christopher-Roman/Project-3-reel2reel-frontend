@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import MovieContainer from '../MovieContainer';
+// import FavMovies from './FavMovies';
+// import WatchList from './WatchList';
+// import OwnedMovies from './OwnedMovies'
 
-class User extends Component {
+class ShowUser extends Component {
 	render() {
 		return(
 			<div>
@@ -18,13 +21,9 @@ class User extends Component {
 				<div>
 					<MovieContainer />
 				</div>
-
-
-
 			</div>
-
 		)
 	}
 }
 
-export default User;
+export default ShowUser;
