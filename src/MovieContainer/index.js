@@ -31,7 +31,7 @@ class MovieContainer extends Component {
         	<Grid columns={1} divided textAlign='center' style={{ height: '100%' }} stackable>
 	            <Form onSubmit={this.searchMovie}><br/>Find a Movie <br /><br />
 					<Search type="text" name="search" value={this.state.search} onChange={this.handleChange} /> <br />
-				<Button>search</Button>
+				<Button color="green">search</Button>
 				</Form>
 			</Grid>
         )
