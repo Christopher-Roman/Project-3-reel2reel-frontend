@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FavMovies from './FavMovies';
-import OwnedMovies from '../OwnedMovies';
-import WatchList from '../WatchList'
+import OwnedMovies from './OwnedMovies';
+import WatchList from './WatchList'
 import MovieContainer from '../MovieContainer';
 import { Grid, Card, Container, Header  } from 'semantic-ui-react';
 
@@ -46,44 +46,46 @@ class ShowUser extends Component {
 			  <img src='https://react.semantic-ui.com/images/avatar/small/matthew.png' class='ui-image' />
 			  	{/* this is a place holder for the users image if they so choose to put one*/}
 
-
+			<Card>
 				<Card.Header>
 
 					Watch List!
+				</Card.Header>
 				<Card.Content>
 				This is where the users watch list is going to go
 				</Card.Content>
 					<WatchList watchList={this.state.watchList}/>
-				</Card.Header>
-				<br/>
+			</Card>	
+			<Card>
 				<Card.Header>
-				
 					Fav Movies!
+				</Card.Header>
+
 				<Card.Content>
 				This is where the users fav movies list is going to go
 				</Card.Content>
 					<FavMovies favMovies={this.state.favMovies}/>
-				</Card.Header>
-				<br/>
+			</Card>
+			<Card>
 				<Card.Header>
 				
 					Owned Movies
+				</Card.Header>
+
 				<Card.Content>
 				This is where the users owned movie list is going to go
 				</Card.Content>
 
 					<OwnedMovies ownedMovies={this.state.ownedMovies}/>
 
-				</Card.Header>
-				<br/>
-				
+			</Card>
+			<Card>				
 				<Card.Header>
 				
 					<MovieContainer />
-				
-				</Card.Header>
 				<br/>
-
+				</Card.Header>
+			</Card>
 				</Card.Content>
 			
 			</Container>

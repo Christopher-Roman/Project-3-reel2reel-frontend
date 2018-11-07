@@ -3,7 +3,7 @@ import ShowUser from '../ShowUser'
 
 class OwnedMovies extends Component {
 	render() {
-		const ownedMovies = this.state.ownedMovies.map((movie, i) => {
+		const ownedMovies = this.props.ownedMovies.map((movie, i) => {
 			return(
 				<li key={i}>
 					Title: {movie.title}

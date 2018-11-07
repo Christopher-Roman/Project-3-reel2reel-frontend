@@ -3,7 +3,7 @@ import ShowUser from '../ShowUser'
 
 class FavMovies extends Component {
 	render() {
-		const favMovies = this.state.favMovies.map((movie, i) => {
+		const favMovies = this.props.favMovies.map((movie, i) => {
 			return(
 				<li key={i}>
 					Title: {movie.title}
