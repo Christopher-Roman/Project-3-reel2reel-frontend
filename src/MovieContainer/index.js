@@ -26,7 +26,6 @@ class MovieContainer extends Component {
 		})
 	}
     render(){
-
         return(
 
         	<div className="movie-info">
