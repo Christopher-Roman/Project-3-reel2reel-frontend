@@ -6,8 +6,12 @@ class Login extends Component {
 		super();
 
 		this.state = {
+			name: '',
 			username: '',
-			password: ''
+			password: '',
+			loginUsername: '',
+			loginPassword: ''
+			// todo: keep these for registration and add login variables too
 		}
 	}
 	handleInput = (e) => {
@@ -15,40 +19,65 @@ class Login extends Component {
 			[e.currentTarget.name]: e.currentTarget.value
 		})
 	}
-	handleSubmit = async (e) => {
+	handleRegisterSubmit = async (e) => {
 		e.preventDefault();
 		this.props.handleLogin(this.state.username, true)
-
-		// const loginResponse = await fetch('http://localhost:9000/auth/login', {
-		// 	method: 'POST',
-		// 	credentials: 'include',
-		// 	body: JSON.stringify(this.state),
-		// 	headers: {
-		// 		'Content-Type': 'application/json'
-		// 	}
-		// });
-		// const parsedResponse = await loginResponse.json();
-		// console.log(loginResponse);
-		// if(parsedResponse.data === 'login successful') {
-		// 	console.log('Successful login');
-		// 	this.props.history.push('/movies');
-		// }	
-
+		const registerResponse = await fetch('http://localhost:9000/auth/register', {
+			method: 'POST',
+			credentials: 'include',
+			// body: JSON.stringify(this.state),
+			body: JSON.stringify({
+				name: this.state.name,
+				username: this.state.username,
+				password: this.state.password
+				// just put the fields that apply for registration
+			}),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+		const parsedResponse = await registerResponse.json();
+		console.log(registerResponse);
+	}
+	handleLoginSubmit = async (e) => {
+		e.preventDefault();
+		const loginResponse = await fetch('http://localhost:9000/auth/login', {
+			method: 'POST',
+			credentials: 'include',
+			body: JSON.stringify({
+				loginUsername: this.state.loginUsername,
+				loginPassword: this.state.loginPassword
+			}),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+		const parsedResponse = await loginResponse.json();
+		console.log(loginResponse);
+		// make sure login is fine
+		this.props.handleLogin(this.state.loginUsername, true)
 	}
 	render() {
 		return (
-		
-
 			<Grid textAlign="center">
-				<div class="login-form">
+				<div className="login-form">
 					<Grid.Column style={{ maxWidth: 300 }} >
-						<Form onSubmit={this.handleSubmit}>
+						<Form onSubmit={this.handleRegisterSubmit}>
+							<Label>Name</Label>
+							<Form.Input fluid icon="user" size="large" type='text' name='name' onChange={this.handleInput} value={this.state.name} placeholder='name' verticalalign="middle"/><br />
 							<Label>Username</Label>
 							<Form.Input fluid icon="user" size="large" type='text' name='username' onChange={this.handleInput} value={this.state.username} placeholder='username' verticalalign="middle"/><br />
 							<Label>Password</Label>
 							<Form.Input fluid icon="lock"  size="large" type='password' name='password' onChange={this.handleInput} value={this.state.password} placeholder='password' /><br />
-							<Button color="green"type='Submit'>Login</Button>
-						</Form>
+							<Button color="green" type='Submit'>Register</Button>
+						</Form> <br/>
+						<Form onSubmit={this.handleLoginSubmit}>
+							<Label>Username</Label>
+							<Form.Input fluid icon="user" size="large" type='text' name='loginUsername' onChange={this.handleInput} value={this.state.loginUsername} placeholder='username' verticalalign="middle"/><br />
+							<Label>Password</Label>
+							<Form.Input fluid icon="lock"  size="large" type='password' name='loginPassword' onChange={this.handleInput} value={this.state.loginPassword} placeholder='password' /><br />
+							<Button color="green" type='Submit'>Login</Button>
+						</Form>					
 					</Grid.Column>
 				</div>
 			</Grid>

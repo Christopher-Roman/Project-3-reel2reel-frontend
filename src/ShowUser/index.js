@@ -18,76 +18,76 @@ class ShowUser extends Component {
 		}
 	}
 	getUser = async () => {
-		const user = await fetch('http://localhost:9000/user?');
-		console.log(user);
+		const user = await fetch('http://localhost:9000/user', {
+			credentials:'include'
+		});
 		const userParsedJSON = await user.json();
+		console.log(userParsedJSON);
+		this.setState({
+				name: userParsedJSON.name,
+				username: userParsedJSON.username,
+				watchList: userParsedJSON.watchList,
+				favMovies: userParsedJSON.favMovies,
+				ownedMovies: userParsedJSON.ownedMovies
+			})
 		return userParsedJSON
 	}
 	componentDidMount(){
-		this.getUser().then((user) => {
-			this.setState({
-				username: user.data.username,
-				name: user.data.name,
-				watchList: user.data.watchList,
-				favMovies: user.data.favMovies,
-				ownedMovies: user.data.ownedMovies
-			}).catch((err) => {
-				console.log(err);
-			})
-		})
+		this.getUser()
 	}
 	render() {
 		return(
-	<Grid textAlign="center">
-		<div class="movie-container">
+			<Grid textAlign="center">
+				<div class="movie-container">
+					<Container >
 
-			<Header as="h1">Hey {this.props.username}!</Header>
-			  <img src='https://react.semantic-ui.com/images/avatar/small/matthew.png' class='ui-image' />
-			  	{/* this is a place holder for the users image if they so choose to put one*/}
+							<Card.Content>
+						<Header as="h1">Hey {this.props.username}!</Header>
+						<img src='https://react.semantic-ui.com/images/avatar/small/matthew.png' class='ui-image' />
+							</Card.Content>
+						<Card>
+							<Card.Header>
+								Watch List!
+							</Card.Header>
 
-			<Card>
-				<Card.Header>
+							<Card.Content>
+							This is where the users watch list is going to go
+							</Card.Content>
 
-					Watch List!
-				</Card.Header>
-				<Card.Content>
-				This is where the users watch list is going to go
-				</Card.Content>
-					<WatchList watchList={this.state.watchList}/>
-			</Card>	
-			<Card>
-				<Card.Header>
-					Fav Movies!
-				</Card.Header>
+								<WatchList watchList={this.state.watchList}/>
+						</Card>	
 
-				<Card.Content>
-				This is where the users fav movies list is going to go
-				</Card.Content>
-					<FavMovies favMovies={this.state.favMovies}/>
-			</Card>
-			<Card>
-				<Card.Header>
-				
-					Owned Movies
-				</Card.Header>
+						<Card>
+							<Card.Header>
+								Fav Movies!
+							</Card.Header>
 
-				<Card.Content>
-				This is where the users owned movie list is going to go
-				</Card.Content>
+							<Card.Content>
+							This is where the users fav movies list is going to go
+							</Card.Content>
+								<FavMovies favMovies={this.state.favMovies}/>
+						</Card>
 
-					<OwnedMovies ownedMovies={this.state.ownedMovies}/>
+						<Card>
+							<Card.Header>
+								Owned Movies
+							</Card.Header>
+							<Card.Content>
+							This is where the users owned movie list is going to go
+							</Card.Content>
+								<OwnedMovies ownedMovies={this.state.ownedMovies}/>
+						</Card>
 
-			</Card>
-			<Card>				
-				<Card.Header>
-				
-					<MovieContainer />
-				<br/>
-				</Card.Header>
-			</Card>
-			
-		</div>
-	</Grid>
+						<Card>				
+							<Card.Header>
+								<MovieContainer />
+							<br/>
+							</Card.Header>
+						</Card>
+
+					</Container>
+				</div>
+			</Grid>
 		)
 	}
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Search, Button, Form, Input } from 'semantic-ui-react';
+import { Search, Button, Form, Input, Grid } from 'semantic-ui-react';
 
 
 class MovieContainer extends Component {
@@ -28,12 +28,14 @@ class MovieContainer extends Component {
     render(){
 
         return(
-        	<div class="movie-info">
 
+        	<div className="movie-info">
+	        	<Grid columns={1} divided textAlign='center' style={{ height: '100%' }} stackable>
 		            <Form onSubmit={this.searchMovie}><br/>Find a Movie <br /><br />
 						<Input type="text" name="search" value={this.state.search} onChange={this.handleChange} /> <br /><br />
 					<Button color="green">search</Button>
 					</Form>
+				</Grid>
 			</div>
         )
     }
