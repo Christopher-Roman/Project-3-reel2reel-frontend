@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FavMovies from './FavMovies';
-import OwnedMovies from '../OwnedMovies';
-import WatchList from '../WatchList'
+import OwnedMovies from './OwnedMovies';
+import WatchList from './WatchList'
 import MovieContainer from '../MovieContainer';
 import { Grid, Card, Container, Header  } from 'semantic-ui-react';
 
