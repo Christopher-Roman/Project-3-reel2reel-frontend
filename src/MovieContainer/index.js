@@ -26,7 +26,6 @@ class MovieContainer extends Component {
 		})
 	}
     render(){
-
         return(
         	<div className="movie-info">
 	        	<Grid columns={1} divided textAlign='center' style={{ height: '100%' }} stackable>
