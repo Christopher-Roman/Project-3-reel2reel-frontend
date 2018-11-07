@@ -38,11 +38,10 @@ class ShowUser extends Component {
 	}
 	render() {
 		return(
+	<Grid textAlign="center">
 		<div class="movie-container">
-			<Container>
-				<Card.Content>
 
-					<Header as="h1">Hey {this.props.username}!</Header>
+			<Header as="h1">Hey {this.props.username}!</Header>
 			  <img src='https://react.semantic-ui.com/images/avatar/small/matthew.png' class='ui-image' />
 			  	{/* this is a place holder for the users image if they so choose to put one*/}
 
@@ -86,10 +85,9 @@ class ShowUser extends Component {
 				<br/>
 				</Card.Header>
 			</Card>
-				</Card.Content>
 			
-			</Container>
 		</div>
+	</Grid>
 		)
 	}
 }
