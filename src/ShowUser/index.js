@@ -41,7 +41,7 @@ class ShowUser extends Component {
 			<Grid textAlign="center">
 				<div class="movie-container">
 					<Container >
-
+					<Grid textAlign="center">
 							<Card.Content>
 						<Header as="h1">Hey {this.props.username}!</Header>
 						<img src='https://react.semantic-ui.com/images/avatar/small/matthew.png' class='ui-image' />
@@ -85,7 +85,7 @@ class ShowUser extends Component {
 							<br/>
 							</Card.Header>
 						</Card>
-
+					</Grid>
 					</Container>
 				</div>
 			</Grid>
