@@ -18,23 +18,22 @@ class ShowUser extends Component {
 		}
 	}
 	getUser = async () => {
-		const user = await fetch('http://localhost:9000/user?');
-		console.log(user);
+		const user = await fetch('http://localhost:9000/user', {
+			credentials:'include'
+		});
 		const userParsedJSON = await user.json();
+		console.log(userParsedJSON);
+		this.setState({
+				name: userParsedJSON.name,
+				username: userParsedJSON.username,
+				watchList: userParsedJSON.watchList,
+				favMovies: userParsedJSON.favMovies,
+				ownedMovies: userParsedJSON.ownedMovies
+			})
 		return userParsedJSON
 	}
 	componentDidMount(){
-		this.getUser().then((user) => {
-			this.setState({
-				username: user.data.username,
-				name: user.data.name,
-				watchList: user.data.watchList,
-				favMovies: user.data.favMovies,
-				ownedMovies: user.data.ownedMovies
-			}).catch((err) => {
-				console.log(err);
-			})
-		})
+		this.getUser()
 	}
 	render() {
 		return(
@@ -42,7 +41,7 @@ class ShowUser extends Component {
 			<Card>
 				<Card.Content>
 
-					<Header as="h1">Hello, {this.props.username}!</Header>
+					<Header as="h1">Hello, {this.state.name}!</Header>
 
 
 				<Card.Header>

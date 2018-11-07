@@ -3,7 +3,7 @@ import ShowUser from '../ShowUser'
 
 class WatchList extends Component {
 	render() {
-		const watchList = this.state.watchList.map((movie, i) => {
+		const watchList = this.props.watchList.map((movie, i) => {
 			return(
 				<li key={i}>
 					Title: {movie.title}
