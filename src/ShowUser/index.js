@@ -21,6 +21,7 @@ class ShowUser extends Component {
 		const user = await fetch('http://localhost:9000/user', {
 			credentials:'include'
 		});
+		console.log(user);
 		const userParsedJSON = await user.json();
 		console.log(userParsedJSON);
 		this.setState({
