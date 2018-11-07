@@ -38,43 +38,57 @@ class ShowUser extends Component {
 	}
 	render() {
 		return(
-		<Container >
-			<Card>
-				<Card.Content>
+			<Grid textAlign="center">
+				<div class="movie-container">
+					<Container >
 
-					<Header as="h1">Hello, {this.state.name}!</Header>
+							<Card.Content>
+						<Header as="h1">Hey {this.props.username}!</Header>
+						<img src='https://react.semantic-ui.com/images/avatar/small/matthew.png' class='ui-image' />
+							</Card.Content>
+						<Card>
+							<Card.Header>
+								Watch List!
+							</Card.Header>
 
+							<Card.Content>
+							This is where the users watch list is going to go
+							</Card.Content>
 
-				<Card.Header>
-				
-					Watch List!
-					<WatchList watchList={this.state.watchList}/>
-				</Card.Header>
-				<br/>
-				<Card.Header>
-				
-					Fav Movies!
-					<FavMovies favMovies={this.state.favMovies}/>
-				</Card.Header>
-				<br/>
-				<Card.Header>
-				
-					Owned Movies
-					<OwnedMovies ownedMovies={this.state.ownedMovies}/>
-				</Card.Header>
-				<br/>
-				
-				<Card.Header>
-				
-					<MovieContainer />
-				
-				</Card.Header>
-				<br/>
+								<WatchList watchList={this.state.watchList}/>
+						</Card>	
 
-				</Card.Content>
-			
-			</Card>
-		</Container>
+						<Card>
+							<Card.Header>
+								Fav Movies!
+							</Card.Header>
+
+							<Card.Content>
+							This is where the users fav movies list is going to go
+							</Card.Content>
+								<FavMovies favMovies={this.state.favMovies}/>
+						</Card>
+
+						<Card>
+							<Card.Header>
+								Owned Movies
+							</Card.Header>
+							<Card.Content>
+							This is where the users owned movie list is going to go
+							</Card.Content>
+								<OwnedMovies ownedMovies={this.state.ownedMovies}/>
+						</Card>
+
+						<Card>				
+							<Card.Header>
+								<MovieContainer />
+							<br/>
+							</Card.Header>
+						</Card>
+
+					</Container>
+				</div>
+			</Grid>
 		)
 	}
 }
