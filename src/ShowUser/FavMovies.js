@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ShowUser from '../ShowUser'
+// import ShowUser from '../ShowUser'
 
 class FavMovies extends Component {
 	render() {

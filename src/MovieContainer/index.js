@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ShowMovie from '../ShowMovie'
-import { Search, Button, Form, Input, Grid } from 'semantic-ui-react';
+import { Button, Form, Input, Grid } from 'semantic-ui-react';
 
 
 class MovieContainer extends Component {

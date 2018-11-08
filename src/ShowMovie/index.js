@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieContainer from '../MovieContainer'
+// import MovieContainer from '../MovieContainer'
 import { Modal, Button, Header, Form, Label} from 'semantic-ui-react';
 
 const ShowMovie = (props) => {
@@ -9,7 +9,7 @@ const ShowMovie = (props) => {
 			<Header>Show Movie</Header>
 			<Modal.Content>
 				<Form>
-					<img src={props.searchedMovie.poster_400x570} /> <br /><br />
+					<img src={props.searchedMovie.poster_400x570} alt=""/> <br /><br />
 					<Label>
 						Movie Title: {props.searchedMovie.title}
 					</Label> <br /><br />

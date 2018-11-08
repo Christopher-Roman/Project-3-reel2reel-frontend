@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Label, Button, Grid, Card} from 'semantic-ui-react';
+import { Form, Label, Button, Grid} from 'semantic-ui-react';
 
 class Login extends Component {
     constructor() {
@@ -36,7 +36,7 @@ class Login extends Component {
                 'Content-Type': 'application/json'
             }
         });
-        const parsedResponse = await registerResponse.json();
+        // const parsedResponse = await registerResponse.json();
         console.log(registerResponse);
     }
     handleLoginSubmit = async (e) => {
@@ -53,7 +53,7 @@ class Login extends Component {
                 'Content-Type': 'application/json'
             }
         });
-        const parsedResponse = await loginResponse.json();
+        // const parsedResponse = await loginResponse.json();
         console.log(loginResponse);
         // make sure login is fine
         this.props.handleLogin(this.state.loginUsername, true)
