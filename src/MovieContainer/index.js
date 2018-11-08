@@ -17,7 +17,7 @@ class MovieContainer extends Component {
 		const searchResult = await fetch('http://localhost:9000/movie/search?searchTerm=' + this.state.search)
 		const foundMovie = await searchResult.json();
 		console.log('here is foundMovie');
-		console.log(foundMovie);
+		console.log(foundMovie); // id is in here
 		// return searchResult;
 	}
 	handleChange = (e) => {
