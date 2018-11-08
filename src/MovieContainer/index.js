@@ -20,7 +20,7 @@ class MovieContainer extends Component {
 	}
 	searchMovie = async (e) => {
 		e.preventDefault();
-		const searchResult = await fetch(process.env.SERVER + '/movie/search?searchTerm=' + this.state.search)
+		const searchResult = await fetch(process.env.REACT_APP_SERVER + '/movie/search?searchTerm=' + this.state.search)
 		const foundMovie = await searchResult.json();
 		this.setState({
 			searchedMovie: {
@@ -46,7 +46,7 @@ class MovieContainer extends Component {
 			img: this.state.searchedMovie.poster_400x570
 		}
 		try {
-			const url = process.env.SERVER + '/movie/watchList/' + this.state.searchedMovie.id
+			const url = process.env.REACT_APP_SERVER + '/movie/watchList/' + this.state.searchedMovie.id
 			const addToWatchList = await fetch(url, {
 				method: 'POST',
 				credentials: 'include',
@@ -73,7 +73,7 @@ class MovieContainer extends Component {
 			img: this.state.searchedMovie.poster_400x570
 		}
 		try {
-			const url = process.env.SERVER + '/movie/favMovies/' + this.state.searchedMovie.id
+			const url = process.env.REACT_APP_SERVER + '/movie/favMovies/' + this.state.searchedMovie.id
 			const addToFavMovies = await fetch(url, {
 				method: 'POST',
 				credentials: 'include',
@@ -101,7 +101,7 @@ class MovieContainer extends Component {
 			img: this.state.searchedMovie.poster_400x570
 		}
 		try {
-			const url = process.env.SERVER + '/movie/ownedMovies/' + this.state.searchedMovie.id
+			const url = process.env.REACT_APP_SERVER + '/movie/ownedMovies/' + this.state.searchedMovie.id
 			const addToownedMovies = await fetch(url, {
 				method: 'POST',
 				credentials: 'include',
