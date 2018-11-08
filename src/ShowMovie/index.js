@@ -19,11 +19,11 @@ const ShowMovie = (props) => {
 					<br />
 					<br />
 					<Modal.Actions>
-						<Button type="submit">Add Movie to FavList
+						<Button type="submit" onClick={props.closeAndAddToFavMovies}>Add Movie to FavList
 						</Button>
-						<Button type="submit">Add Movie to OwnedList
+						<Button type="submit" onClick={props.closeAndAddToOwnedMovies}>Add Movie to OwnedList
 						</Button>
-						<Button type="submit">Add Movie to WatchList
+						<Button type="submit" onClick={props.closeAndAddToWatchList}>Add Movie to WatchList
 						</Button>
 					</Modal.Actions>
 				</Form>

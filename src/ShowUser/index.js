@@ -77,7 +77,7 @@ class ShowUser extends Component {
 							</Card>
 							<Card>				
 								<Card.Header>
-									<MovieContainer />
+									<MovieContainer getUser={this.getUser} />
 									<br/>
 									
 								</Card.Header>
