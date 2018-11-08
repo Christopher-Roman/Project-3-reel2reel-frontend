@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FavMovies from './FavMovies';
 import OwnedMovies from './OwnedMovies';
 import WatchList from './WatchList'
+import ShowMovie from '../ShowMovie'
 import MovieContainer from '../MovieContainer';
 import { Grid, Card, Container, Header  } from 'semantic-ui-react';
 
@@ -41,6 +42,7 @@ class ShowUser extends Component {
 			<Grid textAlign="center">
 				<div className="movie-container">
 					<Container >
+
 						<Grid textAlign="center">
 							<Card.Content>
 								<Header as="h1">Hey {this.props.username}!</Header>
@@ -77,6 +79,7 @@ class ShowUser extends Component {
 								<Card.Header>
 									<MovieContainer />
 									<br/>
+									
 								</Card.Header>
 							</Card>
 						</Grid>

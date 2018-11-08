@@ -9,6 +9,7 @@ class MovieContainer extends Component {
 		this.state = {
 			search: ''
 		}
+		showSearchModal: false
 	}
 	searchMovie = async (e) => {
 		e.preventDefault();
