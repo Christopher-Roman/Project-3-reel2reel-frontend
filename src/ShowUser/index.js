@@ -19,7 +19,8 @@ class ShowUser extends Component {
 		}
 	}
 	getUser = async () => {
-		const user = await fetch(process.env.SERVER +'/user', {
+		const user = await fetch(process.env.REACT_APP_SERVER +'/user', {
+
 			credentials:'include'
 		});
 		console.log(user);
