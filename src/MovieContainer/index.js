@@ -22,7 +22,7 @@ class MovieContainer extends Component {
 		e.preventDefault();
 
 		// fetch call to your backend localhost:5000?movie=terminator
-		const searchResult = await fetch('http://localhost:9000/movie/search?searchTerm=' + this.state.search)
+		const searchResult = await fetch(process.env.SERVER +'/movie/search?searchTerm=' + this.state.search)
 		const foundMovie = await searchResult.json();
 		this.setState({
 			searchedMovie: {
@@ -53,7 +53,7 @@ class MovieContainer extends Component {
 			img: this.state.searchedMovie.poster_400x570
 		}
 		try {
-			const url = 'http://localhost:9000/movie/watchList/' + this.state.searchedMovie.id
+			const url = process.env.SERVER +'/movie/watchList/' + this.state.searchedMovie.id
 			console.log("HERE IS THE URL YOU ARE TRYING TO ADD WATCHLIST WITH ", url);
 			const addToWatchList = await fetch(url, {
 				method: 'POST',
@@ -82,7 +82,7 @@ class MovieContainer extends Component {
 			img: this.state.searchedMovie.poster_400x570
 		}
 		try {
-			const url = 'http://localhost:9000/movie/favMovies/' + this.state.searchedMovie.id
+			const url = process.env.SERVER +'/movie/favMovies/' + this.state.searchedMovie.id
 			console.log("HERE IS THE URL YOU ARE TRYING TO ADD WATCHLIST WITH ", url);
 			const addToFavMovies = await fetch(url, {
 				method: 'POST',
@@ -112,7 +112,7 @@ class MovieContainer extends Component {
 			img: this.state.searchedMovie.poster_400x570
 		}
 		try {
-			const url = 'http://localhost:9000/movie/ownedMovies/' + this.state.searchedMovie.id
+			const url = process.env.SERVER +'/movie/ownedMovies/' + this.state.searchedMovie.id
 			console.log("HERE IS THE URL YOU ARE TRYING TO ADD WATCHLIST WITH ", url);
 			const addToownedMovies = await fetch(url, {
 				method: 'POST',

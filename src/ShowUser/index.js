@@ -19,7 +19,7 @@ class ShowUser extends Component {
 		}
 	}
 	getUser = async () => {
-		const user = await fetch('http://localhost:9000/user', {
+		const user = await fetch(process.env.SERVER +'/user', {
 			credentials:'include'
 		});
 		console.log(user);

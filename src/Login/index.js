@@ -22,7 +22,7 @@ class Login extends Component {
 	handleRegisterSubmit = async (e) => {
 		e.preventDefault();
 		this.props.handleLogin(this.state.username, true)
-		const registerResponse = await fetch('http://localhost:9000/auth/register', {
+		const registerResponse = await fetch(process.env.SERVER +'/auth/register', {
 			method: 'POST',
 			credentials: 'include',
 			// body: JSON.stringify(this.state),
@@ -41,7 +41,7 @@ class Login extends Component {
 	}
 	handleLoginSubmit = async (e) => {
 		e.preventDefault();
-		const loginResponse = await fetch('http://localhost:9000/auth/login', {
+		const loginResponse = await fetch(process.env.SERVER +'/auth/login', {
 			method: 'POST',
 			credentials: 'include',
 			body: JSON.stringify({
