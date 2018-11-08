@@ -20,9 +20,7 @@ class MovieContainer extends Component {
 	}
 	searchMovie = async (e) => {
 		e.preventDefault();
-
-		// fetch call to your backend localhost:5000?movie=terminator
-		const searchResult = await fetch('http://localhost:9000/movie/search?searchTerm=' + this.state.search)
+		const searchResult = await fetch(process.env.SERVER + '/movie/search?searchTerm=' + this.state.search)
 		const foundMovie = await searchResult.json();
 		this.setState({
 			searchedMovie: {
@@ -31,13 +29,8 @@ class MovieContainer extends Component {
 				id: foundMovie.results[0].id,
 				poster_400x570: foundMovie.results[0].poster_400x570				
 			},
-			showSearchModal: true
-
-			
+			showSearchModal: true	
 		})
-		console.log('here is foundMovie');
-		
-		// return searchResult;
 	}
 	handleChange = (e) => {
 		this.setState({
@@ -53,8 +46,7 @@ class MovieContainer extends Component {
 			img: this.state.searchedMovie.poster_400x570
 		}
 		try {
-			const url = 'http://localhost:9000/movie/watchList/' + this.state.searchedMovie.id
-			console.log("HERE IS THE URL YOU ARE TRYING TO ADD WATCHLIST WITH ", url);
+			const url = process.env.SERVER + '/movie/watchList/' + this.state.searchedMovie.id
 			const addToWatchList = await fetch(url, {
 				method: 'POST',
 				credentials: 'include',
@@ -64,7 +56,6 @@ class MovieContainer extends Component {
 		        }
 			})
 			const addToWatchListParsed = await addToWatchList.json();
-			console.log(addToWatchListParsed);
 			this.setState({
 				showSearchModal: false,
 			})
@@ -82,8 +73,7 @@ class MovieContainer extends Component {
 			img: this.state.searchedMovie.poster_400x570
 		}
 		try {
-			const url = 'http://localhost:9000/movie/favMovies/' + this.state.searchedMovie.id
-			console.log("HERE IS THE URL YOU ARE TRYING TO ADD WATCHLIST WITH ", url);
+			const url = process.env.SERVER + '/movie/favMovies/' + this.state.searchedMovie.id
 			const addToFavMovies = await fetch(url, {
 				method: 'POST',
 				credentials: 'include',
@@ -93,7 +83,6 @@ class MovieContainer extends Component {
 		        }
 			})
 			const addToFavMoviesParsed = await addToFavMovies.json();
-			console.log(addToFavMoviesParsed);
 			this.setState({
 				showSearchModal: false,
 			})
@@ -112,8 +101,7 @@ class MovieContainer extends Component {
 			img: this.state.searchedMovie.poster_400x570
 		}
 		try {
-			const url = 'http://localhost:9000/movie/ownedMovies/' + this.state.searchedMovie.id
-			console.log("HERE IS THE URL YOU ARE TRYING TO ADD WATCHLIST WITH ", url);
+			const url = process.env.SERVER + '/movie/ownedMovies/' + this.state.searchedMovie.id
 			const addToownedMovies = await fetch(url, {
 				method: 'POST',
 				credentials: 'include',
@@ -123,7 +111,6 @@ class MovieContainer extends Component {
 		        }
 			})
 			const addToownedMoviesParsed = await addToownedMovies.json();
-			console.log(addToownedMoviesParsed);
 			this.setState({
 				showSearchModal: false,
 			})
@@ -141,9 +128,7 @@ class MovieContainer extends Component {
             })
     }
     render(){
-    	console.log(this.state.searchedMovie);
         return(
-
         	<div className="movie-info">
 	        	<Grid columns={1} divided textAlign='center' style={{ height: '100%' }} stackable>
 		            <Form onSubmit={this.searchMovie}><br/>Find a Movie <br /><br />
