@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ShowMovie from '../ShowMovie'
 import { Search, Button, Form, Input, Grid } from 'semantic-ui-react';
 
 
@@ -7,9 +8,12 @@ class MovieContainer extends Component {
 		super();
 
 		this.state = {
-			search: ''
+			search: '',
+			showMovieModal: false
 		}
 	}
+
+
 	searchMovie = async (e) => {
 		e.preventDefault();
 
@@ -22,17 +26,28 @@ class MovieContainer extends Component {
 	}
 	handleChange = (e) => {
 		this.setState({
-			search: e.currentTarget.value
+			search: e.currentTarget.value,
 		})
+	}
+	openModal = (moviesSearched) => {
+			console.log(moviesSearched, 'moviesSearched-------------')
+
+			this.setState({
+			showMovieModal: true,
+				moviesSearched: {
+					...moviesSearched
+				}
+			})
 	}
     render(){
         return(
-
         	<div className="movie-info">
 	        	<Grid columns={1} divided textAlign='center' style={{ height: '100%' }} stackable>
 		            <Form onSubmit={this.searchMovie}><br/>Find a Movie <br /><br />
 						<input type="text" name="search" value={this.state.search} onChange={this.handleChange} /> <br /><br />
-					<Button color="green">search</Button>
+					
+					<Button color="green" onClick={this.openModal}>search</Button>
+					<ShowMovie open={this.state.showMovieModal}/>
 					</Form>
 				</Grid>
 			</div>
