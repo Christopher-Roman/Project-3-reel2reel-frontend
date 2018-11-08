@@ -104,7 +104,7 @@ class MovieContainer extends Component {
 		
 	}
 	closeAndAddToOwnedMovies = async (e) => {
-				e.preventDefault();
+		e.preventDefault();
 		const requestBody = {
 			title: this.state.searchedMovie.title,
 			releaseDate: this.state.searchedMovie.release_date,

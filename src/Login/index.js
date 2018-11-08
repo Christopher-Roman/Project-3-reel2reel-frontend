@@ -63,11 +63,11 @@ class Login extends Component {
 				<div className="login-form">
 					<Grid.Column style={{ maxWidth: 300 }} >
 						<Form onSubmit={this.handleRegisterSubmit}>
-							<Label>Name</Label>
+							<Label color="teal">Name</Label>
 							<Form.Input fluid icon="user" size="large" type='text' name='name' onChange={this.handleInput} value={this.state.name} placeholder='name' verticalalign="middle"/><br />
-							<Label>Username</Label>
+							<Label color="teal">Username</Label>
 							<Form.Input fluid icon="user" size="large" type='text' name='username' onChange={this.handleInput} value={this.state.username} placeholder='username' verticalalign="middle"/><br />
-							<Label>Password</Label>
+							<Label color="teal">Password</Label>
 							<Form.Input fluid icon="lock"  size="large" type='password' name='password' onChange={this.handleInput} value={this.state.password} placeholder='password' /><br />
 							<Button color="green" type='Submit'>Register</Button>
 						</Form> <br/>
