@@ -50,7 +50,7 @@ class ShowUser extends Component {
 								<img src='https://react.semantic-ui.com/images/avatar/small/matthew.png' className='ui-image' />
 							</Card.Content>
 							<Card>
-								<Card.Header>
+								<Card.Header class="watchListCard">
 									Watch List!
 								</Card.Header>
 								<Card.Content>
@@ -59,7 +59,7 @@ class ShowUser extends Component {
 								<WatchList watchList={this.state.watchList}/>
 							</Card>	
 							<Card>
-								<Card.Header>
+								<Card.Header class="favListCard">
 									Fav Movies!
 								</Card.Header>
 								<Card.Content>
@@ -68,7 +68,7 @@ class ShowUser extends Component {
 								<FavMovies favMovies={this.state.favMovies}/>
 							</Card>
 							<Card>
-								<Card.Header>
+								<Card.Header class="ownListCard">
 									Owned Movies
 								</Card.Header>
 								<Card.Content>
