@@ -1,4 +1,8 @@
 body {
+	background-image: url("https://ak6.picdn.net/shutterstock/videos/9040726/thumb/1.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 	background-color: #F0F8FF;
   margin: 0;
   padding: 0;
@@ -24,13 +28,15 @@ li{
 	background-color:#596e79
 }
 .watchListCard{
+
 	background-color:#917D65;
 }
 .ui.card{
 margin:.5rem;
 background-color: #dfd3c3;
 /*box-shadow: 1px 1px 40px 1px ;*/
-font-size: 15pt;
+font-size: 12pt;
+font-style: bold;
 
 }
 .ui.button{
@@ -43,3 +49,17 @@ div.ui.label{
 	background-color:#c7b198;
 	font-size: 12pt;
 }
+
+/*.mainDiv {
+	display: flex;
+	justify-content: space-between;
+}
+
+.main-card {
+	width: 15%;
+}
+
+.second-card {
+	width: 85%;
+	background-color: red;
+}*/

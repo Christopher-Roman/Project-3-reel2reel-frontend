@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Label, Button, Grid} from 'semantic-ui-react';
+import { Form, Label, Button, Grid, Card} from 'semantic-ui-react';
 
 class Login extends Component {
     constructor() {
@@ -59,28 +59,32 @@ class Login extends Component {
 	}
 	render() {
 		return (
-			<Grid textAlign="center">
-				<div className="login-form">
-					<Grid.Column style={{ maxWidth: 300 }} >
-						<Form onSubmit={this.handleRegisterSubmit}>
-							<Label>Name</Label>
-							<Form.Input fluid icon="user" size="large" type='text' name='name' onChange={this.handleInput} value={this.state.name} placeholder='name' verticalalign="middle"/><br />
-							<Label>Username</Label>
-							<Form.Input fluid icon="user" size="large" type='text' name='username' onChange={this.handleInput} value={this.state.username} placeholder='username' verticalalign="middle"/><br />
-							<Label>Password</Label>
-							<Form.Input fluid icon="lock"  size="large" type='password' name='password' onChange={this.handleInput} value={this.state.password} placeholder='password' /><br />
-							<Button color="green" type='Submit'>Register</Button>
-						</Form> <br/>
-						<Form onSubmit={this.handleLoginSubmit}>
-							<Label>Username</Label>
-							<Form.Input  fluid icon="user" size="large" type='text' name='loginUsername' onChange={this.handleInput} value={this.state.loginUsername} placeholder='username' verticalalign="middle"/><br />
-							<Label>Password</Label>
-							<Form.Input fluid icon="lock"  size="large" type='password' name='loginPassword' onChange={this.handleInput} value={this.state.loginPassword} placeholder='password' /><br />
-							<Button color="green" type='Submit'>Login</Button>
-						</Form>					
-					</Grid.Column>
-				</div>
-			</Grid>
+			<div className="main-div">
+				<Card className="main-card" verticalalign="center">
+					<Grid textAlign="center">
+						<div className="login-form">
+							<Grid.Column style={{ maxWidth: 300 }} >
+								<Form onSubmit={this.handleRegisterSubmit}>
+									<Label>Name</Label>
+									<Form.Input fluid icon="user" size="large" type='text' name='name' onChange={this.handleInput} value={this.state.name} placeholder='name' verticalalign="middle"/><br />
+									<Label>Username</Label>
+									<Form.Input fluid icon="user" size="large" type='text' name='username' onChange={this.handleInput} value={this.state.username} placeholder='username' verticalalign="middle"/><br />
+									<Label>Password</Label>
+									<Form.Input fluid icon="lock"  size="large" type='password' name='password' onChange={this.handleInput} value={this.state.password} placeholder='password' /><br />
+									<Button color="green" type='Submit'>Register</Button>
+								</Form> <br/>
+								<Form onSubmit={this.handleLoginSubmit}>
+									<Label>Username</Label>
+									<Form.Input  fluid icon="user" size="large" type='text' name='loginUsername' onChange={this.handleInput} value={this.state.loginUsername} placeholder='username' verticalalign="middle"/><br />
+									<Label>Password</Label>
+									<Form.Input fluid icon="lock"  size="large" type='password' name='loginPassword' onChange={this.handleInput} value={this.state.loginPassword} placeholder='password' /><br />
+									<Button color="green" type='Submit'>Login</Button>
+								</Form>					
+							</Grid.Column>
+						</div>
+					</Grid>
+				</Card>
+		</div>
 		)
 	}
 }

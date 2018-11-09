@@ -7,6 +7,7 @@ const FavMovies = (props) => {
 			return(
 				<li key={i}>
 					Title: {movie.title}
+					<br/>
 					<button onClick={props.deleteFavMovie.bind(null, movie.movieId)}> Delete Movie</button>
 				</li>
 			)

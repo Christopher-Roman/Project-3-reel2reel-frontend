@@ -68,7 +68,6 @@ class ShowUser extends Component {
 
 						<Grid textAlign="center">
 							<Card.Content>
-								<Header as="h1">Hey {this.props.username}!</Header>
 								<Image src='https://react.semantic-ui.com/images/avatar/small/matthew.png' label={{ as: 'a', color: '#596e79', content: this.props.username, ribbon: true }} className='ui-image'/>
 							</Card.Content>
 							<Card>

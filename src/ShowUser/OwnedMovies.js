@@ -8,6 +8,7 @@ const OwnedMovies = (props) => {
 			return(
 				<li key={i}>
 					Title: {movie.title}
+					<br/>
 					<button onClick={props.deleteOwnedMovie.bind(null, movie.movieId)}> Delete Movie</button>
 				</li>
 			)

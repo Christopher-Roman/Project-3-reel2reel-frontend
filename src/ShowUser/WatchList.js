@@ -8,6 +8,7 @@ const WatchList = (props) => {
 			return(
 				<li key={i}>
 					Title: {movie.title}
+					<br/>
 					<button onClick={props.deleteWatchListMovie.bind(null, movie.movieId)}> Delete Movie</button>
 				</li>
 			)
