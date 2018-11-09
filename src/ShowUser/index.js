@@ -4,7 +4,7 @@ import OwnedMovies from './OwnedMovies';
 import WatchList from './WatchList'
 import ShowMovie from '../ShowMovie'
 import MovieContainer from '../MovieContainer';
-import { Grid, Card, Container, Header  } from 'semantic-ui-react';
+import { Grid, Card, Container, Header, Image } from 'semantic-ui-react';
 
 class ShowUser extends Component {
 	constructor() {
@@ -23,9 +23,7 @@ class ShowUser extends Component {
 
 			credentials:'include'
 		});
-		console.log(user);
 		const userParsedJSON = await user.json();
-		console.log(userParsedJSON);
 		this.setState({
 				name: userParsedJSON.name,
 				username: userParsedJSON.username,
@@ -38,6 +36,30 @@ class ShowUser extends Component {
 	componentDidMount(){
 		this.getUser()
 	}
+	deleteWatchListMovie = async (id) => {
+		const deleteMovieResponse = await fetch(process.env.REACT_APP_SERVER + '/movie/deleteWatchList/' + id, { 
+			method: 'DELETE', 
+			credentials: 'include'
+		});
+		const deleteMovieParsed = deleteMovieResponse.json();
+		this.getUser()
+	}
+	deleteOwnedMovie = async (id) => {
+		const deleteMovieResponse = await fetch(process.env.REACT_APP_SERVER + '/movie/deleteOwnedMovie/' + id, { 
+			method: 'DELETE', 
+			credentials: 'include'
+		});
+		const deleteMovieParsed = deleteMovieResponse.json();
+		this.getUser()
+	}
+	deleteFavMovie = async (id) => {
+		const deleteMovieResponse = await fetch(process.env.REACT_APP_SERVER + '/movie/deleteFavMovie/' + id, { 
+			method: 'DELETE', 
+			credentials: 'include'
+		});
+		const deleteMovieParsed = deleteMovieResponse.json();
+		this.getUser()
+	}
 	render() {
 		return(
 			<Grid textAlign="center">
@@ -47,34 +69,31 @@ class ShowUser extends Component {
 						<Grid textAlign="center">
 							<Card.Content>
 								<Header as="h1">Hey {this.props.username}!</Header>
-								<img src='https://react.semantic-ui.com/images/avatar/small/matthew.png' className='ui-image' />
+								<Image src='https://react.semantic-ui.com/images/avatar/small/matthew.png' label={{ as: 'a', color: '#596e79', content: this.props.username, ribbon: true }} className='ui-image'/>
 							</Card.Content>
 							<Card>
 								<Card.Header class="watchListCard">
 									Watch List!
 								</Card.Header>
 								<Card.Content>
-								This is where the users watch list is going to go
 								</Card.Content>
-								<WatchList watchList={this.state.watchList}/>
+								<WatchList watchList={this.state.watchList} deleteWatchListMovie={this.deleteWatchListMovie}/>
 							</Card>	
 							<Card>
 								<Card.Header class="favListCard">
 									Fav Movies!
 								</Card.Header>
 								<Card.Content>
-									This is where the users fav movies list is going to go
 								</Card.Content>
-								<FavMovies favMovies={this.state.favMovies}/>
+								<FavMovies favMovies={this.state.favMovies} deleteFavMovie={this.deleteFavMovie} />
 							</Card>
 							<Card>
 								<Card.Header class="ownListCard">
 									Owned Movies
 								</Card.Header>
 								<Card.Content>
-									This is where the users owned movie list is going to go
 								</Card.Content>
-								<OwnedMovies ownedMovies={this.state.ownedMovies}/>
+								<OwnedMovies ownedMovies={this.state.ownedMovies} deleteOwnedMovie={this.deleteOwnedMovie} />
 							</Card>
 							<Card>				
 								<Card.Header>

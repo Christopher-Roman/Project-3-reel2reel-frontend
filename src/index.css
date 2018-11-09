@@ -17,9 +17,29 @@ code {
 li{
 	list-style: none;
 }
+.ui.modal>.content{
+	background-color:#dfd3c3;
+}
+.ui.modal>.header{
+	background-color:#596e79
+}
+.watchListCard{
+	background-color:#917D65;
+}
 .ui.card{
 margin:.5rem;
-background-color: #F0FFFF;
+background-color: #dfd3c3;
 /*box-shadow: 1px 1px 40px 1px ;*/
 font-size: 15pt;
+
+}
+.ui.button{
+	background-color:#596e79;
+}
+.ui.green.button{
+	background-color:#596e79;
+}
+div.ui.label{
+	background-color:#c7b198;
+	font-size: 12pt;
 }

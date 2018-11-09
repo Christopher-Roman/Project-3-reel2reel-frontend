@@ -7,7 +7,10 @@ const ShowMovie = (props) => {
 	return(
 		<Modal open = {props.open}>
 			<Header>Show Movie</Header>
-			<Modal.Content>
+			<Modal.Content class = "mainModal">
+			        <Label as='a' color='#596e79' font-size="20pt" ribbon>
+						{props.searchedMovie.title}
+        			</Label>
 				<Form>
 					<img src={props.searchedMovie.poster_400x570} alt=""/> <br /><br />
 					<Label>

@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
 // import ShowUser from '../ShowUser'
+import React from 'react';
+import ShowUser from '../ShowUser'
 
-class WatchList extends Component {
-	render() {
-		const watchList = this.props.watchList.map((movie, i) => {
+
+const WatchList = (props) => {
+		const watchList = props.watchList.map((movie, i) => {
 			return(
 				<li key={i}>
 					Title: {movie.title}
+					<button onClick={props.deleteWatchListMovie.bind(null, movie.movieId)}> Delete Movie</button>
 				</li>
 			)
 		})
@@ -16,7 +18,6 @@ class WatchList extends Component {
 			</ul>
 
 		)
-	}
 }
 
 export default WatchList;

@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
-// import ShowUser from '../ShowUser'
 
-class OwnedMovies extends Component {
-	render() {
-		const ownedMovies = this.props.ownedMovies.map((movie, i) => {
+import React from 'react';
+import ShowUser from '../ShowUser'
+
+
+const OwnedMovies = (props) => {
+		const ownedMovies = props.ownedMovies.map((movie, i) => {
 			return(
 				<li key={i}>
 					Title: {movie.title}
+					<button onClick={props.deleteOwnedMovie.bind(null, movie.movieId)}> Delete Movie</button>
 				</li>
 			)
 		})
@@ -16,7 +18,6 @@ class OwnedMovies extends Component {
 			</ul>
 
 		)
-	}
 }
 
 export default OwnedMovies;

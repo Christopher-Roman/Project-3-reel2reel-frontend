@@ -24,6 +24,7 @@ class MovieContainer extends Component {
 		// fetch call to your backend localhost:5000?movie=terminator
 		const searchResult = await fetch(process.env.REACT_APP_SERVER +'/movie/search?searchTerm=' + this.state.search)
 
+
 		const foundMovie = await searchResult.json();
 		this.setState({
 			searchedMovie: {
