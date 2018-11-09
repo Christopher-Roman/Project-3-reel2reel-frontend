@@ -8,7 +8,7 @@ const ShowMovie = (props) => {
 		<Modal open = {props.open}>
 			<Header>Show Movie</Header>
 			<Modal.Content class = "mainModal">
-			        <Label as='a' color='#596e79' font-size="20pt" ribbon>
+			        <Label>
 						{props.searchedMovie.title}
         			</Label>
 				<Form>
