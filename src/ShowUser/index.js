@@ -22,9 +22,7 @@ class ShowUser extends Component {
 		const user = await fetch(process.env.REACT_APP_SERVER + '/user', {
 			credentials:'include'
 		});
-		console.log(user);
 		const userParsedJSON = await user.json();
-		console.log(userParsedJSON);
 		this.setState({
 				name: userParsedJSON.name,
 				username: userParsedJSON.username,
@@ -35,6 +33,30 @@ class ShowUser extends Component {
 		return userParsedJSON
 	}
 	componentDidMount(){
+		this.getUser()
+	}
+	deleteWatchListMovie = async (id) => {
+		const deleteMovieResponse = await fetch(process.env.REACT_APP_SERVER + '/movie/deleteWatchList/' + id, { 
+			method: 'DELETE', 
+			credentials: 'include'
+		});
+		const deleteMovieParsed = deleteMovieResponse.json();
+		this.getUser()
+	}
+	deleteOwnedMovie = async (id) => {
+		const deleteMovieResponse = await fetch(process.env.REACT_APP_SERVER + '/movie/deleteOwnedMovie/' + id, { 
+			method: 'DELETE', 
+			credentials: 'include'
+		});
+		const deleteMovieParsed = deleteMovieResponse.json();
+		this.getUser()
+	}
+	deleteFavMovie = async (id) => {
+		const deleteMovieResponse = await fetch(process.env.REACT_APP_SERVER + '/movie/deleteFavMovie/' + id, { 
+			method: 'DELETE', 
+			credentials: 'include'
+		});
+		const deleteMovieParsed = deleteMovieResponse.json();
 		this.getUser()
 	}
 	render() {
@@ -53,27 +75,24 @@ class ShowUser extends Component {
 									Watch List!
 								</Card.Header>
 								<Card.Content>
-								This is where the users watch list is going to go
 								</Card.Content>
-								<WatchList watchList={this.state.watchList}/>
+								<WatchList watchList={this.state.watchList} deleteWatchListMovie={this.deleteWatchListMovie}/>
 							</Card>	
 							<Card>
 								<Card.Header>
 									Fav Movies!
 								</Card.Header>
 								<Card.Content>
-									This is where the users fav movies list is going to go
 								</Card.Content>
-								<FavMovies favMovies={this.state.favMovies}/>
+								<FavMovies favMovies={this.state.favMovies} deleteFavMovie={this.deleteFavMovie} />
 							</Card>
 							<Card>
 								<Card.Header>
 									Owned Movies
 								</Card.Header>
 								<Card.Content>
-									This is where the users owned movie list is going to go
 								</Card.Content>
-								<OwnedMovies ownedMovies={this.state.ownedMovies}/>
+								<OwnedMovies ownedMovies={this.state.ownedMovies} deleteOwnedMovie={this.deleteOwnedMovie} />
 							</Card>
 							<Card>				
 								<Card.Header>
